@@ -1,14 +1,14 @@
 package org.example.salary;
 
-public class ContractWorker implements CalcSalary {
-
-    private double yearPay;
+public class Freelancer implements CalcSalary {
 
     private String name;
 
-    public ContractWorker(String name, double yearPay) {
-        this.yearPay = yearPay;
+    private int month;
+
+    public Freelancer(String name, int month) {
         this.name = name;
+        this.month = month;
     }
 
     @Override
@@ -18,6 +18,6 @@ public class ContractWorker implements CalcSalary {
 
     @Override
     public double calcMonth() {
-        return (yearPay/12) * 0.65;
+        return month * 0.967;
     }
 }
