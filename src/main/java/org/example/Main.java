@@ -1,24 +1,46 @@
 package org.example;
 
-import org.example.pizza.CommonUI;
-import org.example.pizza.CreateUI;
-import org.example.pizza.ReadUI;
-import org.example.pizza.TotalUI;
+import org.example.salary.CalcSalary;
+import org.example.salary.ContractWorker;
+import org.example.salary.PartTimer;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner in = new Scanner(System.in);
-        CommonUI[] arr = {new CreateUI(in), new ReadUI(in)};
 
-        TotalUI totalUI = new TotalUI(in, arr);
+        File file = new File("list.txt");
+        Scanner scanner = new Scanner(file);
 
-        totalUI.execute();
+        java.util.List<CalcSalary> empList = new ArrayList<CalcSalary>();
 
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            System.out.println(line);
+
+            //split - 배열로
+            String[] arr = line.split(",");
+
+            if(arr[0].equals("A")){ //이 직원 파트타이머
+                empList.add(new PartTimer( Integer.parseInt(arr[2]), Integer.parseInt(arr[3])));
+            }else if(arr[0].equals("C")){
+                empList.add(new ContractWorker( Integer.parseInt(arr[2])));
+            }
+
+        }//while true
+        scanner.close(); //파일 연결 끝
+
+        System.out.println("--------------------------------");
+
+        empList.forEach( emp -> System.out.println(emp.calcMonth()) );
 
 
     }

@@ -18,7 +18,7 @@ public abstract class CommonUI {
     }
 
     protected String inputStr(String msg){
-        this.print(msg);
+        print(msg);
         return scanner.nextLine();
     }
 

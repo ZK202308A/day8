@@ -19,7 +19,6 @@ public class TotalUI extends CommonUI{
         if(oper == -1){
             return;
         }
-
         uiArr[oper].execute();
 
         execute();//recursive
