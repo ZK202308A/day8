@@ -30,9 +30,9 @@ public class Main {
             String[] arr = line.split(",");
 
             if(arr[0].equals("A")){ //이 직원 파트타이머
-                empList.add(new PartTimer( Integer.parseInt(arr[2]), Integer.parseInt(arr[3])));
+                empList.add(new PartTimer( arr[1], Integer.parseInt(arr[2]), Integer.parseInt(arr[3])));
             }else if(arr[0].equals("C")){
-                empList.add(new ContractWorker( Integer.parseInt(arr[2])));
+                empList.add(new ContractWorker( arr[1], Integer.parseInt(arr[2])));
             }
 
         }//while true
@@ -40,7 +40,7 @@ public class Main {
 
         System.out.println("--------------------------------");
 
-        empList.forEach( emp -> System.out.println(emp.calcMonth()) );
+        empList.forEach( emp -> System.out.println( emp.getName()+": " + emp.calcMonth()) );
 
 
     }

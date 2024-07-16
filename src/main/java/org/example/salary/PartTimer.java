@@ -6,9 +6,17 @@ public class PartTimer implements CalcSalary{
 
     private int time;
 
-    public PartTimer(int hourPay, int time) {
+    private String name;
+
+    public PartTimer(String name, int hourPay, int time) {
         this.hourPay = hourPay;
         this.time = time;
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
