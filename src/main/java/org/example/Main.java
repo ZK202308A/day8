@@ -5,6 +5,7 @@ import org.example.salary.ContractWorker;
 import org.example.salary.Freelancer;
 import org.example.salary.PartTimer;
 import org.example.vend.KoreanMsg;
+import org.example.vend.ThaiMsg;
 import org.example.vend.VendingMachine;
 
 import java.io.File;
@@ -19,7 +20,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
-        VendingMachine machine = new VendingMachine(new KoreanMsg());
+        VendingMachine machine = new VendingMachine(new ThaiMsg());
 
         machine.start();
 
